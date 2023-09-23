@@ -1,4 +1,5 @@
-﻿        <!-- Banner Area Start -->
+﻿   @model AboutVM
+     <!-- Banner Area Start -->
 <div class="banner-area-wrapper">
     <div class="banner-area text-center">
         <div class="container">
@@ -16,20 +17,19 @@
 </div>
 <!-- Banner Area End -->
 <!-- About Start -->
-<div class="about-area pt-145 pb-155">
+<div class="about-area pb-155">
     <div class="container">
         <div class="row">
             <div class="col-md-6 col-sm-6">
                 <div class="about-content">
-                    <h2>WELCOME TO <span>EDUHOME</span></h2>
-                    <p>I must explain to you how all this mistaken idea of denouncing pleure and prsing pain was born and I will give you a complete account of the system, and expound the actual teachings  the master-builder of humanit happiness</p>
-                    <p class="hidden-sm">I must explain to you how all this mistaken idea of denouncing pleure and prsing pain was born and I will give you a complete account of the system</p>
-                    <a class="default-btn" href="#">view courses</a>
+                    <h2>@Html.Raw(Model.Abouts.Title)</h2>
+                    @Html.Raw(Model.Abouts.Description)
+                    <a class="default-btn" href="about.html">view courses</a>
                 </div>
             </div>
             <div class="col-md-6 col-sm-6">
                 <div class="about-img">
-                    <img src="~/img/about/about.png" alt="about">
+                    <img src="~/img/about/@Model.Abouts.Image" alt="about">
                 </div>
             </div>
         </div>
@@ -125,20 +125,23 @@
     <div class="container">
         <div class="row">
             <div class="testimonial-owl owl-theme owl-carousel">
-                <div class="col-md-8 col-md-offset-2 col-sm-12">
-                    <div class="single-testimonial">
-                        <div class="testimonial-info">
-                            <div class="testimonial-img">
-                                <img src="~/img/testimonial/testimonial.jpg" alt="testimonial">
-                            </div>
-                            <div class="testimonial-content">
-                                <p>I must explain to you how all this mistaken idea of denoung pleure and praising pain was born and I will give you a coete account of the system, and expound the actual</p>
-                                <h4>David Morgan</h4>
-                                <h5>Student, CSE</h5>
+                @foreach (Testimonial testimonial in Model.Testimonials)
+                {
+                    <div class="col-md-8 col-md-offset-2 col-sm-12">
+                        <div class="single-testimonial">
+                            <div class="testimonial-info">
+                                <div class="testimonial-img">
+                                    <img src="~/img/testimonial/@testimonial.Image" alt="testimonial">
+                                </div>
+                                <div class="testimonial-content">
+                                    <p>@testimonial.Description</p>
+                                    <h4>@testimonial.Name</h4>
+                                    <h5>@testimonial.Student</h5>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                }
             </div>
         </div>
     </div>

@@ -2,6 +2,7 @@
 using Eduhome_again.Models;
 using Eduhome_again.ViewModels;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
@@ -20,14 +21,17 @@ namespace Eduhome_again.Controllers
         }
 
         
-        public IActionResult Index()
+        public async Task<IActionResult>  Index()
         {
 
             HomeVM homeVM = new HomeVM()
             {
-                Services = _db.Services.ToList(),
-                Sliders = _db.Sliders.ToList(),
-                Abouts= _db.Abouts.First(),
+                Services =await _db.Services.ToListAsync(),
+                Sliders =await _db.Sliders.ToListAsync(),
+                Abouts=await _db.Abouts.FirstAsync(),
+                Courses=await _db.Courses.Take(3).ToListAsync(),
+                Testimonials = await _db.Testimonials.ToListAsync(),
+                
             };
             return View(homeVM);
         }

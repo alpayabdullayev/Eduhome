@@ -7,6 +7,8 @@ namespace Eduhome_again.ViewModels
     {
         public List<Slider> Sliders { get; set; }
         public List<Service> Services { get; set; }
+        public List<Course> Courses { get; set; }
+        public List<Testimonial> Testimonials { get; set; }
 
         public About Abouts { get; set; }
     }
