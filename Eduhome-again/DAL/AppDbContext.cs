@@ -15,6 +15,9 @@ namespace Eduhome_again.DAL
         public DbSet<About> Abouts{ get; set; }
         public DbSet<Testimonial> Testimonials{ get; set; }
         public DbSet<Blog> Blogs{ get; set; }
+        public DbSet<Header> Header{ get; set; }
+
+
 
 
     }
