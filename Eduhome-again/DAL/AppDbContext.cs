@@ -14,6 +14,7 @@ namespace Eduhome_again.DAL
         public DbSet<Course> Courses{ get; set; }
         public DbSet<About> Abouts{ get; set; }
         public DbSet<Testimonial> Testimonials{ get; set; }
+        public DbSet<Blog> Blogs{ get; set; }
 
 
     }

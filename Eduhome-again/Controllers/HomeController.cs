@@ -31,6 +31,7 @@ namespace Eduhome_again.Controllers
                 Abouts=await _db.Abouts.FirstAsync(),
                 Courses=await _db.Courses.Take(3).ToListAsync(),
                 Testimonials = await _db.Testimonials.ToListAsync(),
+                Blogs = await _db.Blogs.ToListAsync(),
                 
             };
             return View(homeVM);
