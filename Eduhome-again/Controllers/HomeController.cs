@@ -26,7 +26,7 @@ namespace Eduhome_again.Controllers
 
             HomeVM homeVM = new HomeVM()
             {
-                Services =await _db.Services.ToListAsync(),
+                Services =await _db.Services.Take(3).ToListAsync(),
                 Sliders =await _db.Sliders.ToListAsync(),
                 Abouts=await _db.Abouts.FirstAsync(),
                 Courses=await _db.Courses.Take(3).ToListAsync(),

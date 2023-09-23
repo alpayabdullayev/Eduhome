@@ -22,5 +22,23 @@ namespace Eduhome_again.Areas.Admin.Controllers
             List<Service> services = await _db.Services.ToListAsync();
             return View(services);
         }
+
+        public IActionResult Create() 
+        { 
+            return View();
+        }
+        [HttpPost]
+        public async Task<IActionResult> Create(Service service)
+        {
+
+            if (!ModelState.IsValid) 
+            {
+                return View();
+            }
+            await  _db.Services.AddAsync(service);
+            await _db.SaveChangesAsync();
+            return RedirectToAction("Index");
+        }
     }
 }
+

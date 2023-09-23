@@ -109,7 +109,7 @@
         </aside>
         <main role="main" class="main-content">
             <div class="container-fluid">
-                <div class="row justify-content-center">
+                <div class="row ">
         @RenderBody()
                 </div> <!-- .row -->
             </div> <!-- .container-fluid -->
@@ -475,5 +475,6 @@
         gtag('js', new Date());
         gtag('config', 'UA-56159088-1');
     </script>
+    @RenderSection("Scripts",false)
 </body>
 </html>
