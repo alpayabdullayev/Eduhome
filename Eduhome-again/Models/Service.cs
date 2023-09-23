@@ -8,7 +8,9 @@ namespace Eduhome_again.Models
 
         [Required(ErrorMessage ="Salam qaqa eleme")]
         public string Name { get; set; }
-        [Required(ErrorMessage = "Salam qaqa eleme")]
+        
         public string Description { get; set; }
+
+        public bool IsDeactive { get; set; }
     }
 }

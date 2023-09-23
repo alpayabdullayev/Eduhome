@@ -2,11 +2,11 @@
 <div class="col-6">
     <div class="card shadow mb-4">
         <div class="card-header">
-            <strong class="card-title">Create Service</strong>
+            <strong class="card-title">Update Service</strong>
         </div>
         <div class="card-body">
             <form method="post">
-                 
+
                 <div class="form-group">
                     <label asp-for="Name"></label>
                     <input asp-for="Name" class="form-control">
@@ -18,7 +18,7 @@
                     <textarea asp-for="Description" class="form-control" rows="3"></textarea>
                     <span class="text-danger" asp-validation-for="Description"></span>
                 </div>
-                
+
                 <button type="submit" class="btn btn-primary ">Submit</button>
                 <a class="btn btn-secondary" asp-action="Index">Go Back</a>
             </form>

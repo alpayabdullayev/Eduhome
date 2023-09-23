@@ -11,6 +11,7 @@
                     <tr>
                         
                         <th class="text-dark font-weight-bold">Name</th>
+                        <th class="text-dark font-weight-bold">Status</th>
                        
                         <th class="text-right text-dark font-weight-bold">Actions</th>
 
@@ -21,11 +22,30 @@
                     {
                         <tr>
                             <td>@item.Name</td>
+                            <td>
+                                @if (!item.IsDeactive)
+                                {
+                                    <span class="badge badge-pill badge-success text-white">Aktiv</span>
+                                }
+                                else
+                                {
+                                    <span class="badge badge-pill badge-danger">Passiv</span>
+                                }
+                            </td>
                             
                             <td class="d-flex justify-content-end">
-                                <a class="btn btn-warning text-white mr-2">Detail</a>
-                                <a class="btn btn-info text-white mr-2">Update</a>
-                                <a class="btn btn-danger text-white mr-2">Delete </a>
+                                <a class="btn btn-warning text-white mr-2" asp-action="Detail" asp-route-id="@item.Id">Detail</a>
+                                <a class="btn btn-info text-white mr-2" asp-action="Update" asp-route-id="@item.Id">Update</a>
+                               
+
+                                @if (!item.IsDeactive)
+                                {
+                                    <a class="btn btn-danger text-white mr-2" style="width:112px" asp-action="Activity" asp-route-id="@item.Id">DeActivitated </a>
+                                }
+                                else
+                                {
+                                    <a class="btn btn-success text-white mr-2" style="width:112px" asp-action="Activity" asp-route-id="@item.Id">Activitated </a>
+                                }
                             </td>
                         </tr>
                     }
