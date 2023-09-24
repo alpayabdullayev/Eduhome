@@ -1,0 +1,60 @@
+﻿@model List<Slider>
+<div class="col-md-12 my-4">
+    <div class="card shadow">
+        <div class="card-body">
+            <div class="d-flex justify-content-between">
+                <h5 class="card-title">Sliders</h5>
+                <a class="btn btn-primary text-white mr-2 mb-3" asp-action="Create">Create</a>
+            </div>
+            <table class="table table-bordered table-hover mb-0">
+                <thead>
+                    <tr>
+                        <th class="text-dark font-weight-bold">Image</th>
+                        <th class="text-dark font-weight-bold">Name</th>
+                        <th class="text-dark font-weight-bold">Status</th>
+
+                        <th class="text-right text-dark font-weight-bold">Actions</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (Slider item in Model)
+                    {
+                        <tr>
+                            <td>
+                                <img style="width:180px; height:100px; object-fit:cover" src="~/img/slider/@item.Image"/>
+                            </td>
+                            <td>@item.Title</td>
+                            <td>
+                                @if (!item.IsDeactive)
+                                {
+                                    <span class="badge badge-pill badge-success text-white">Aktiv</span>
+                                }
+                                else
+                                {
+                                    <span class="badge badge-pill badge-danger">Passiv</span>
+                                }
+                            </td>
+
+                            <td class="text-center">
+                                <a class="btn btn-warning text-white mr-2" asp-action="Detail" asp-route-id="@item.Id">Detail</a>
+                                <a class="btn btn-info text-white mr-2" asp-action="Update" asp-route-id="@item.Id">Update</a>
+
+
+                                @if (!item.IsDeactive)
+                                {
+                                    <a class="btn btn-danger text-white mr-2" style="width:112px" asp-action="Activity" asp-route-id="@item.Id">DeActivitated </a>
+                                }
+                                else
+                                {
+                                    <a class="btn btn-success text-white mr-2" style="width:112px" asp-action="Activity" asp-route-id="@item.Id">Activitated </a>
+                                }
+                            </td>
+                        </tr>
+                    }
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

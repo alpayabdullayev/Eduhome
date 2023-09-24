@@ -1,0 +1,19 @@
+﻿@model Slider
+<!-- Örnek olarak, Namespacenizi doğru belirtmelisiniz. -->
+<div class="container mt-5">
+    <h2>Slider Details</h2>
+    <div class="row mt-4">
+        <div class="col-md-6">
+            <img src="~/img/slider/@Model.Image" class="img-fluid" alt="Slider Image">
+        </div>
+        <div class="col-md-6">
+            <!-- Özellikleriniz için detayları burada gösterebilirsiniz. Örneğin: -->
+            <h3>@Model.Title</h3> <!-- Eğer 'Name' adında bir özellik varsa -->
+            <p>@Model.Description</p> <!-- Eğer 'Description' adında bir özellik varsa -->
+            <!-- Diğer özellikleri de benzer şekilde ekleyebilirsiniz. -->
+        </div>
+    </div>
+    <div class="mt-4">
+        <a asp-action="Index" class="btn btn-primary">Back to List</a>
+    </div>
+</div>

@@ -11,8 +11,25 @@
                 <div class="col-md-4 col-sm-4 col-xs-12">
                     <div class="header-top-right text-right">
                         <ul>
-                            <li><a asp-action="Login" asp-controller="Account">login</a></li>
-                            <li><a asp-action="Register" asp-controller="Account">signup</a></li>
+                            @if (User.Identity.IsAuthenticated)
+                            {
+                                @if (User.IsInRole("Admin"))
+                                {
+
+                                    <li><a asp-area="Admin" asp-controller="DashBoard" asp-action="Index">@User.Identity.Name</a></li>
+                                    <li><a asp-controller="Account" asp-action="LogOut">Log Out</a></li>
+                                }
+                                else
+                                {
+                                    <li><a asp-area="Admin" asp-controller="DashBoard" asp-action="Index">@User.Identity.Name</a></li>
+                                    <li><a asp-controller="Account" asp-action="LogOut">Log Out</a></li>
+                                }
+                            }
+                            else
+                            {
+                                <li><a asp-controller="Account" asp-action="Login">login</a></li>
+                                <li><a asp-controller="Account" asp-action="Register">signup</a></li>
+                            }
                         </ul>
                     </div>
                 </div>
